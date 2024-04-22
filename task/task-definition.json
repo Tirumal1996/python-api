@@ -1,11 +1,11 @@
 {
-    "family": "flask-task",
+    "family": "flasky-task",
     "containerDefinitions": [
         {
-            "name": "flask-api",
-            "image": "035578590291.dkr.ecr.us-east-1.amazonaws.com/flask-api:latest",
-            "cpu": 256,
-            "memory": 512,
+            "name": "flasky-api",
+            "image": "AWS_ACCOUNT_ID.dkr.ecr.us-east-1.amazonaws.com/flasky-api:latest",
+            "cpu": 512,
+            "memory": 1024,
             "portMappings": [
                 {
                     "containerPort": 5000,
@@ -17,16 +17,6 @@
             "environment": [],
             "mountPoints": [],
             "volumesFrom": [],
-            "healthCheck": {
-                "command": [
-                    "CMD-SHELL",
-                    "curl -f http://localhost:5000 || exit 1"
-                ],
-                "interval": 60,
-                "timeout": 5,
-                "retries": 3,
-                "startPeriod": 30
-            },
             "systemControls": []
         }
     ],

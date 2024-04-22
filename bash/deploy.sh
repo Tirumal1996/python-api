@@ -7,7 +7,7 @@ ECR_REPO_NAME="flask-api"
 IMAGE_TAG="latest"
 CLUSTER_NAME="flask-cluster"
 SERVICE_NAME="flask-service"
-HEALTH_CHECK_URL="http://54.172.12.117:5000"
+HEALTH_CHECK_URL="http://34.239.188.173:5000"
 NAME="python-api"
 GIT_REPO="https://github.com/Tirumal1996/$NAME.git"
 
@@ -26,8 +26,9 @@ docker tag $ECR_REPO_NAME:$IMAGE_TAG $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazona
 # Push Docker image to ECR
 docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/$ECR_REPO_NAME:$IMAGE_TAG
 
+cd ../task
 # Update ECS service with new task definition
-TASK_DEFINITION=$(aws ecs register-task-definition --cli-input-json file://task/task-definition.json | jq -r '.taskDefinition.taskDefinitionArn')
+TASK_DEFINITION=$(aws ecs register-task-definition --cli-input-json file://task-definition.json | jq -r '.taskDefinition.taskDefinitionArn')
 echo "Registered new task definition: $TASK_DEFINITION"
 
 # Update ECS service

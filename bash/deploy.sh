@@ -7,7 +7,7 @@ ECR_REPO_NAME="flask-api"
 IMAGE_TAG="latest"
 CLUSTER_NAME="flask-cluster"
 SERVICE_NAME="flask-service"
-HEALTH_CHECK_URL="http://34.239.188.173:5000"
+HEALTH_CHECK_URL="http://$2:5000"
 NAME="python-api"
 GIT_REPO="https://github.com/Tirumal1996/$NAME.git"
 

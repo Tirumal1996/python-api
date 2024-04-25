@@ -1,9 +1,9 @@
 {
-    "family": "flasky-task",
+    "taskDefinitionArn": "arn:aws:ecs:us-east-1:035578590291:task-definition/flasky-task:7",
     "containerDefinitions": [
         {
             "name": "flasky-api",
-            "image": "AWS_ACCOUNT_ID.dkr.ecr.us-east-1.amazonaws.com/flasky-api:latest",
+            "image": "035578590291.dkr.ecr.us-east-1.amazonaws.com/flasky-api:latest",
             "cpu": 512,
             "memory": 1024,
             "portMappings": [
@@ -20,11 +20,37 @@
             "systemControls": []
         }
     ],
+    "family": "flasky-task",
     "executionRoleArn": "arn:aws:iam::035578590291:role/ecs-task-execution-role",
     "networkMode": "awsvpc",
+    "revision": 7,
+    "volumes": [],
+    "status": "ACTIVE",
+    "requiresAttributes": [
+        {
+            "name": "com.amazonaws.ecs.capability.ecr-auth"
+        },
+        {
+            "name": "ecs.capability.execution-role-ecr-pull"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.18"
+        },
+        {
+            "name": "ecs.capability.task-eni"
+        }
+    ],
+    "placementConstraints": [],
+    "compatibilities": [
+        "EC2",
+        "FARGATE"
+    ],
     "requiresCompatibilities": [
         "FARGATE"
     ],
     "cpu": "1024",
-    "memory": "2048"
+    "memory": "2048",
+    "registeredAt": "2024-04-25T12:50:39.681Z",
+    "registeredBy": "arn:aws:iam::035578590291:root",
+    "tags": []
 }

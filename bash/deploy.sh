@@ -35,6 +35,8 @@ echo "Registered new task definition: $TASK_DEFINITION"
 aws ecs update-service --cluster $CLUSTER_NAME --service $SERVICE_NAME --task-definition $TASK_DEFINITION
 echo "Updated ECS service with new task definition"
 
+aws ecs wait services-stable --cluster "${clusterName}" --services "${serviceName}"
+
 # Health check
 until $(curl --output /dev/null --silent --head --fail $HEALTH_CHECK_URL); do
     printf '.'
